@@ -1,12 +1,24 @@
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, View, Modal } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 export default function App() {
-  const [text, setText] = useState("example");
+  const [lengthOfTime, setLengthOfTime] = useState();
   return (
     <View style={styles.container}>
       <Text>How long would you like to watch for?</Text>
-      <TextInput style={styles.textInput} onChangeText={setText} value={text} />
+      <Picker
+        style={styles.picker}
+        selectedValue={lengthOfTime}
+        onValueChange={setLengthOfTime}
+      >
+        <Picker.Item label="5 mins" value="java" />
+        <Picker.Item label="10 mins" value="js" />
+        <Picker.Item label="15 mins" value="js" />
+        <Picker.Item label="20 mins" value="js" />
+        <Picker.Item label="25 mins" value="js" />
+        <Picker.Item label="30 mins" value="js" />
+      </Picker>
     </View>
   );
 }
@@ -18,11 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textInput: {
-    borderColor: "black",
-    borderWidth: 1,
-    margin: 30,
-    padding: 10,
-    width: 200,
+  picker: {
+    width: "40%",
   },
 });
