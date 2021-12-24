@@ -2,13 +2,13 @@ import React from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/core';
 import { CTAButton } from '../components/CTAButton';
-import { useStore } from '../store';
+import { useTimeStore } from '../store';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
 import { StyledPicker } from '../components/StyledPicker';
 
 export const LengthOfTimeScreen = () => {
-  const { lengthOfTime, setLengthOfTime } = useStore();
+  const { lengthOfTime, setLengthOfTime } = useTimeStore();
   const { navigate } = useNavigation();
 
   return (
