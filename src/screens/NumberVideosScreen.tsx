@@ -4,6 +4,7 @@ import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
 import { useNavigation } from "@react-navigation/native";
 import { useStore } from "../zustandStore";
+import { Heading } from "../components/Heading";
 
 export const NumberVideosScreen = () => {
   const noOfVideos = useStore((state) => state.noOfVideos);
@@ -13,9 +14,7 @@ export const NumberVideosScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.question}>
-        How many videos would you like to watch?
-      </Text>
+      <Heading>How many videos would you like to watch?</Heading>
       <Picker
         style={styles.picker}
         selectedValue={noOfVideos}
@@ -37,11 +36,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  question: {
-    fontSize: 40,
-    textAlign: "center",
-    padding: 30,
   },
   picker: {
     width: "40%",

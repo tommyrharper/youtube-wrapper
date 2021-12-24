@@ -5,18 +5,17 @@ import { CTAButton } from "../components/CTAButton";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../NavigationStack";
 import { useStore } from "../zustandStore";
+import { Heading } from "../components/Heading";
 
 export const SearchScreen = () => {
-  const noOfVideos = useStore(state => state.noOfVideos);
-  const setNoOfVideos = useStore(state => state.setNoOfVideos);
+  const noOfVideos = useStore((state) => state.noOfVideos);
+  const setNoOfVideos = useStore((state) => state.setNoOfVideos);
 
   const { navigate, goBack } = useNavigation();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.question}>
-        Search
-      </Text>
+      <Heading>Search</Heading>
       <TextInput />
       <CTAButton onPress={() => navigate("Search")}>Go</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
@@ -30,11 +29,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  question: {
-    fontSize: 40,
-    textAlign: "center",
-    padding: 30,
   },
   picker: {
     width: "40%",
