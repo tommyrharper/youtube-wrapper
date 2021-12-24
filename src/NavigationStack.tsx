@@ -4,7 +4,7 @@ import React from 'react';
 import { LengthOfTimeScreen } from './screens/LengthOfTimeScreen';
 
 import { NumberVideosScreen } from './screens/NumberVideosScreen';
-import { ResultsScreen } from './screens/ResultsScreen';
+import { ResultsScreen } from './screens/ResultsScreen/ResultsScreen';
 import { SearchScreen } from './screens/SearchScreen';
 
 export type RootStackParamList = {
