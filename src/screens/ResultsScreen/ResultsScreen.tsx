@@ -1,34 +1,35 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import { CTAButton } from '../../components/CTAButton';
 import { Heading } from '../../components/Heading';
-import { DefaultContainer } from '../../components/DefaultContainer';
-import { useSearchTermStore } from '../../store';
 import { mockResults } from '../../mockResults';
-
-// console.log(`Constants`, Constants.manifest.extra.googleApiKey);
+import { DefaultQueryContainer } from '../../components/DefaultQueryContainer';
+import { VideoPreview } from './components/VideoPreview';
 
 export const ResultsScreen = () => {
   const { navigate, goBack } = useNavigation();
-  // const { data, loading, error } = useFetchResults()
-  const { data, loading, error } = {
+  // const query = useFetchResults()
+  const query = {
     loading: false,
     error: false,
     data: mockResults,
   };
+  const { data } = query;
+
+  const renderItem = useCallback(({ item }) => {
+    return <VideoPreview video={item} />;
+  }, []);
 
   return (
-    <DefaultContainer>
+    <DefaultQueryContainer query={query}>
       <Heading>Results</Heading>
       <FlatList
         data={data.items}
         keyExtractor={(item) => item.id.videoId}
-        renderItem={({ item }) => {
-          return <Text>{item.snippet.title}</Text>;
-        }}
+        renderItem={renderItem}
       />
       <CTAButton onPress={goBack}>Back</CTAButton>
-    </DefaultContainer>
+    </DefaultQueryContainer>
   );
 };
