@@ -45,7 +45,8 @@
     "react/jsx-one-expression-per-line": "off",
     "nonblock-statement-body-position": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "no-plusplus": "off"
   },
   "settings": {
     "import/resolver": {
