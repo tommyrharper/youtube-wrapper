@@ -2,13 +2,13 @@ import React from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { CTAButton } from '../components/CTAButton';
-import { useStore } from '../store';
+import { useNoOfVideosStore } from '../store';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
 import { StyledPicker } from '../components/StyledPicker';
 
 export const NumberVideosScreen = () => {
-  const { noOfVideos, setNoOfVideos } = useStore();
+  const { noOfVideos, setNoOfVideos } = useNoOfVideosStore();
   const { navigate, goBack } = useNavigation();
 
   return (
