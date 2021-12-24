@@ -1,36 +1,21 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
-import { Picker } from "@react-native-picker/picker";
+import React from "react";
+import { StyleSheet, TextInput } from "react-native";
 import { CTAButton } from "../components/CTAButton";
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-import { RootStackParamList } from "../NavigationStack";
-import { useStore } from "../zustandStore";
+import { useNavigation } from "@react-navigation/native";
 import { Heading } from "../components/Heading";
+import { DefaultContainer } from "../components/DefaultContainer";
 
 export const SearchScreen = () => {
-  const noOfVideos = useStore((state) => state.noOfVideos);
-  const setNoOfVideos = useStore((state) => state.setNoOfVideos);
-
   const { navigate, goBack } = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <DefaultContainer>
       <Heading>Search</Heading>
       <TextInput />
       <CTAButton onPress={() => navigate("Search")}>Go</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
-    </View>
+    </DefaultContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  picker: {
-    width: "40%",
-  },
-});
+const styles = StyleSheet.create({});

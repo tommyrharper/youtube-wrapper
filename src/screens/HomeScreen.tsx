@@ -5,6 +5,7 @@ import { CTAButton } from "../components/CTAButton";
 import { useNavigation } from "@react-navigation/core";
 import { useStore } from "../zustandStore";
 import { Heading } from "../components/Heading";
+import { DefaultContainer } from "../components/DefaultContainer";
 
 export const HomeScreen = () => {
   const lengthOfTime = useStore((state) => state.lengthOfTime);
@@ -13,7 +14,7 @@ export const HomeScreen = () => {
   const { navigate } = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <DefaultContainer>
       <Heading>How long would you like to watch for?</Heading>
       <Picker
         style={styles.picker}
@@ -28,17 +29,11 @@ export const HomeScreen = () => {
         <Picker.Item label="30 mins" value={30} />
       </Picker>
       <CTAButton onPress={() => navigate("NumberVideos")}>Next</CTAButton>
-    </View>
+    </DefaultContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   picker: {
     width: "40%",
   },
