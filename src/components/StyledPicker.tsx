@@ -7,9 +7,10 @@ interface StyledPickerProps extends PickerProps {
 }
 
 export const StyledPicker = (props: StyledPickerProps) => {
+  const { children } = props;
   return (
     <Picker style={styles.picker} {...props}>
-      {props.children}
+      {children}
     </Picker>
   );
 };

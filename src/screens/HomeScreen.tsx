@@ -1,7 +1,7 @@
 import React from 'react';
 import { Picker } from '@react-native-picker/picker';
-import { CTAButton } from '../components/CTAButton';
 import { useNavigation } from '@react-navigation/core';
+import { CTAButton } from '../components/CTAButton';
 import { useStore } from '../zustandStore';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
