@@ -41,7 +41,11 @@
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "operator-linebreak": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "nonblock-statement-body-position": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "implicit-arrow-linebreak": "off"
   },
   "settings": {
     "import/resolver": {
