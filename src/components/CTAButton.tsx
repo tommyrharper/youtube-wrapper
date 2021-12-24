@@ -1,14 +1,26 @@
 import React, { ReactNode } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 
 interface CTAButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   children: ReactNode;
+  buttonStyles?: StyleProp<ViewStyle>;
 }
 
-export const CTAButton = ({ onPress, children }: CTAButtonProps) => {
+export const CTAButton = ({
+  onPress,
+  children,
+  buttonStyles,
+}: CTAButtonProps) => {
   return (
-    <View style={styles.button}>
+    <View style={[styles.button, buttonStyles]}>
       <TouchableOpacity onPress={onPress}>
         <Text allowFontScaling={false} style={styles.text}>
           {children}
@@ -22,7 +34,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderRadius: 5,
-    margin: 30,
+    margin: 10,
     width: 200,
   },
   text: {
