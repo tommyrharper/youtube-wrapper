@@ -1,12 +1,19 @@
-import Constants from 'expo-constants';
-import { useFetch } from '../../../hooks/useFetch';
+import { UseFetchResult, useFetch } from '../../../hooks/useFetch';
+import { getSearchUrl } from '../../../utils';
 import { useSearchTermStore } from '../../../store';
+import { TransformedVideosResponse } from '../../../types';
+import { useTransformResults } from './useTransformResults';
 
-const GOOGLE_API_BASE_URL = 'https://www.googleapis.com/youtube/v3';
+const INITIAL_DATA = { items: [] };
 
-export const useFetchResults = () => {
-  const { searchTerm: q } = useSearchTermStore();
-  const key = Constants.manifest.extra.googleApiKey;
-  const url = `${GOOGLE_API_BASE_URL}/search?part=snippet&maxResults=25&q=${q}&key=$${key}`;
-  return useFetch(url, { items: [] });
+interface UseFetchResultsResponse extends UseFetchResult {
+  data: null | TransformedVideosResponse;
+}
+
+export const useFetchResults = (): UseFetchResultsResponse => {
+  const { searchTerm } = useSearchTermStore();
+  const searchResult = useFetch(getSearchUrl(searchTerm), INITIAL_DATA);
+  const transformedQuery = useTransformResults(searchResult.data);
+
+  return transformedQuery;
 };
