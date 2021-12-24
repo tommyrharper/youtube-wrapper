@@ -1,11 +1,11 @@
-import React from "react";
-import { Picker } from "@react-native-picker/picker";
-import { CTAButton } from "../components/CTAButton";
-import { useNavigation } from "@react-navigation/native";
-import { useStore } from "../zustandStore";
-import { Heading } from "../components/Heading";
-import { DefaultContainer } from "../components/DefaultContainer";
-import { StyledPicker } from "../components/StyledPicker";
+import React from 'react';
+import { Picker } from '@react-native-picker/picker';
+import { CTAButton } from '../components/CTAButton';
+import { useNavigation } from '@react-navigation/native';
+import { useStore } from '../zustandStore';
+import { Heading } from '../components/Heading';
+import { DefaultContainer } from '../components/DefaultContainer';
+import { StyledPicker } from '../components/StyledPicker';
 
 export const NumberVideosScreen = () => {
   const { noOfVideos, setNoOfVideos } = useStore();
@@ -19,7 +19,7 @@ export const NumberVideosScreen = () => {
         <Picker.Item label="2 videos" value={2} />
         <Picker.Item label="3 videos" value={3} />
       </StyledPicker>
-      <CTAButton onPress={() => navigate("Search")}>Start</CTAButton>
+      <CTAButton onPress={() => navigate('Search')}>Start</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
     </DefaultContainer>
   );

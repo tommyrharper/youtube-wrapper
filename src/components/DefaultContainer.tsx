@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import React, { ReactNode } from 'react';
+import { Text, StyleSheet, View } from 'react-native';
 
 interface DefaultContainerProps {
   children: ReactNode;
@@ -12,8 +12,8 @@ export const DefaultContainer = ({ children }: DefaultContainerProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

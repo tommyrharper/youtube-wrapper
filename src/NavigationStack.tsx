@@ -1,13 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
-import { HomeScreen } from "./screens/HomeScreen";
-import { NumberVideosScreen } from "./screens/NumberVideosScreen";
-import { SearchScreen } from "./screens/SearchScreen";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { HomeScreen } from './screens/HomeScreen';
+import { NumberVideosScreen } from './screens/NumberVideosScreen';
+import { SearchScreen } from './screens/SearchScreen';
 
 export type RootStackParamList = {
   Home: undefined;
-  NumberVideos;
+  NumberVideos: undefined;
   Search: undefined;
 };
 

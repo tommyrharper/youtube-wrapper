@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
-} from "react-native";
+} from 'react-native';
 
 interface CTAButtonProps {
   onPress?: () => void;
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

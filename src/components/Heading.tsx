@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { Text, StyleSheet } from "react-native";
+import React, { ReactNode } from 'react';
+import { Text, StyleSheet } from 'react-native';
 
 interface HeadingProps {
   children: ReactNode;
@@ -12,7 +12,7 @@ export const Heading = ({ children }: HeadingProps) => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 40,
-    textAlign: "center",
+    textAlign: 'center',
     padding: 30,
   },
 });

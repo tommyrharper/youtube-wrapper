@@ -1,10 +1,10 @@
-import create from "zustand";
+import create from 'zustand';
 
 interface ZustandStore {
   lengthOfTime: number;
   noOfVideos: number;
-  setLengthOfTime: (lengthOfTime: number) => void;
-  setNoOfVideos: (noOfVideos: number) => void;
+  setLengthOfTime: (lengthOfTime: number | string) => void;
+  setNoOfVideos: (noOfVideos: number | string) => void;
 }
 
 export const useStore = create<ZustandStore>((set) => ({
@@ -12,14 +12,14 @@ export const useStore = create<ZustandStore>((set) => ({
   lengthOfTime: 0,
   noOfVideos: 0,
   // methods for manipulating state
-  setLengthOfTime: (lengthOfTime: number) => {
+  setLengthOfTime: (lengthOfTime: number | string) => {
     set(() => ({
-      lengthOfTime,
+      lengthOfTime: Number(lengthOfTime),
     }));
   },
-  setNoOfVideos: (noOfVideos: number) => {
+  setNoOfVideos: (noOfVideos: number | string) => {
     set(() => ({
-      noOfVideos,
+      noOfVideos: Number(noOfVideos),
     }));
   },
 }));

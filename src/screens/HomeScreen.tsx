@@ -1,11 +1,11 @@
-import React from "react";
-import { Picker } from "@react-native-picker/picker";
-import { CTAButton } from "../components/CTAButton";
-import { useNavigation } from "@react-navigation/core";
-import { useStore } from "../zustandStore";
-import { Heading } from "../components/Heading";
-import { DefaultContainer } from "../components/DefaultContainer";
-import { StyledPicker } from "../components/StyledPicker";
+import React from 'react';
+import { Picker } from '@react-native-picker/picker';
+import { CTAButton } from '../components/CTAButton';
+import { useNavigation } from '@react-navigation/core';
+import { useStore } from '../zustandStore';
+import { Heading } from '../components/Heading';
+import { DefaultContainer } from '../components/DefaultContainer';
+import { StyledPicker } from '../components/StyledPicker';
 
 export const HomeScreen = () => {
   const { lengthOfTime, setLengthOfTime } = useStore();
@@ -25,7 +25,7 @@ export const HomeScreen = () => {
         <Picker.Item label="25 mins" value={25} />
         <Picker.Item label="30 mins" value={30} />
       </StyledPicker>
-      <CTAButton onPress={() => navigate("NumberVideos")}>Next</CTAButton>
+      <CTAButton onPress={() => navigate('NumberVideos')}>Next</CTAButton>
     </DefaultContainer>
   );
 };
