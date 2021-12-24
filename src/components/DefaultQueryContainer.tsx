@@ -27,7 +27,9 @@ export const DefaultQueryContainer = ({
       )}
       {error && !loading && (
         <>
-          <ErrorMessage>There was an Error</ErrorMessage>
+          <ErrorMessage>
+            {query.errorMessage || 'There was an Error'}
+          </ErrorMessage>
           <CTAButton onPress={goBack}>Back</CTAButton>
         </>
       )}
