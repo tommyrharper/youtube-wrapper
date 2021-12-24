@@ -1,3 +1,4 @@
+/* cSpell:disable */
 export const mockVideosList = {
   kind: 'youtube#videoListResponse',
   etag: 'l4-oBqhLZ8I86jugUT3voynrxo8',
