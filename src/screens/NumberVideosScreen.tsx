@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
-import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
-import { RootStackParamList } from "../NavigationStack";
+import { useNavigation } from "@react-navigation/native";
 import { useStore } from "../zustandStore";
 
 export const NumberVideosScreen = () => {
-  const noOfVideos = useStore(state => state.noOfVideos);
-  const setNoOfVideos = useStore(state => state.setNoOfVideos);
+  const noOfVideos = useStore((state) => state.noOfVideos);
+  const setNoOfVideos = useStore((state) => state.setNoOfVideos);
 
   const { navigate, goBack } = useNavigation();
 
@@ -26,7 +25,7 @@ export const NumberVideosScreen = () => {
         <Picker.Item label="2 videos" value={2} />
         <Picker.Item label="3 videos" value={3} />
       </Picker>
-      <CTAButton onPress={() => {}}>Start</CTAButton>
+      <CTAButton onPress={() => navigate("Search")}>Start</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
     </View>
   );
