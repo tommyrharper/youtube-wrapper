@@ -8,9 +8,7 @@ import { DefaultContainer } from "../components/DefaultContainer";
 import { StyledPicker } from "../components/StyledPicker";
 
 export const HomeScreen = () => {
-  const lengthOfTime = useStore((state) => state.lengthOfTime);
-  const setLengthOfTime = useStore((state) => state.setLengthOfTime);
-
+  const { lengthOfTime, setLengthOfTime } = useStore();
   const { navigate } = useNavigation();
 
   return (

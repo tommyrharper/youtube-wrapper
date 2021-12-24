@@ -8,9 +8,7 @@ import { DefaultContainer } from "../components/DefaultContainer";
 import { StyledPicker } from "../components/StyledPicker";
 
 export const NumberVideosScreen = () => {
-  const noOfVideos = useStore((state) => state.noOfVideos);
-  const setNoOfVideos = useStore((state) => state.setNoOfVideos);
-
+  const { noOfVideos, setNoOfVideos } = useStore();
   const { navigate, goBack } = useNavigation();
 
   return (
