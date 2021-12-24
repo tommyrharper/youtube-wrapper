@@ -82,6 +82,31 @@ export const convertISO8601ToSeconds = (input) => {
 export const getVideoDurationString = (duration: string) => {
   const seconds = convertISO8601ToSeconds(duration);
   const numMins = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds - (numMins * 60));
+  const remainingSeconds = Math.floor(seconds - numMins * 60);
   return `${numMins}m ${remainingSeconds}s`;
+};
+
+export const abbreviateNumber = (value) => {
+  let newValue = value;
+  if (value >= 1000) {
+    const suffixes = ['', 'k', 'm', 'b', 't'];
+    const suffixNum = Math.floor(`${value}`.length / 3);
+    let shortValue: number | string = '';
+    for (let precision = 2; precision >= 1; precision--) {
+      shortValue = parseFloat(
+        (suffixNum !== 0 ? value / 1000 ** suffixNum : value).toPrecision(
+          precision,
+        ),
+      );
+      const dotLessShortValue = `${shortValue}`.replace(/[^a-zA-Z 0-9]+/g, '');
+      if (dotLessShortValue.length <= 2) {
+        break;
+      }
+    }
+    if (typeof shortValue === 'number') {
+      if (shortValue % 1 !== 0) shortValue = shortValue.toFixed(1);
+    }
+    newValue = shortValue + suffixes[suffixNum];
+  }
+  return newValue;
 };

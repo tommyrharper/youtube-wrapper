@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { TransformedVideoItem } from '../../../types';
-import { getVideoDurationString } from '../../../utils';
+import { abbreviateNumber, getVideoDurationString } from '../../../utils';
 
 interface VideoPreviewProps {
   video: TransformedVideoItem;
@@ -15,7 +15,9 @@ export const VideoPreview = ({ video }: VideoPreviewProps) => {
       <Text style={styles.text}>
         Length: {getVideoDurationString(video.contentDetails.duration)}
       </Text>
-      <Text style={styles.text}>Views: {video.statistics.viewCount}</Text>
+      <Text style={styles.text}>
+        Views: {abbreviateNumber(video.statistics.viewCount)}
+      </Text>
       <Image
         style={styles.image}
         source={{ uri: video.snippet.thumbnails.default.url }}
