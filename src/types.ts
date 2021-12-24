@@ -76,9 +76,11 @@ export interface VideoListResponse {
   items: VideoListItem[];
 }
 
-// TODO: Check this is correct
-export type TransformedVideoItem = VideoListItem & VideoSearchItem;
-// TODO: Check these is correct
+export interface TransformedVideoItem extends VideoSearchItem {
+  contentDetails: VideoListItem['contentDetails'];
+  statistics: VideoListItem['statistics'];
+}
+
 export interface TransformedVideosResponse extends YouTubeSearchResponse {
   items: TransformedVideoItem[];
 }

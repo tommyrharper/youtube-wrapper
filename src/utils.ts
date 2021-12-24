@@ -49,9 +49,7 @@ export const getTransformedVideoResponse = (
   searchResult: YouTubeSearchResponse,
   videoListResponse: VideoListResponse,
 ): TransformedVideosResponse => {
-  // ) => {
-  const res = {
-    ...videoListResponse,
+  return {
     ...searchResult,
     items: searchResult.items.map((item, i) => {
       const videoListItem = videoListResponse.items[i];
@@ -61,5 +59,4 @@ export const getTransformedVideoResponse = (
       };
     }),
   };
-  return res;
 };
