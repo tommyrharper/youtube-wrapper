@@ -19,7 +19,7 @@ export const NumberVideosScreen = () => {
         <Picker.Item label="2 videos" value={2} />
         <Picker.Item label="3 videos" value={3} />
       </StyledPicker>
-      <CTAButton onPress={() => navigate('Search')}>Start</CTAButton>
+      <CTAButton onPress={() => navigate('Search')}>Next</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
     </DefaultContainer>
   );
