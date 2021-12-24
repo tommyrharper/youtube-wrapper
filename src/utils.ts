@@ -86,27 +86,24 @@ export const getVideoDurationString = (duration: string) => {
   return `${numMins}m ${remainingSeconds}s`;
 };
 
-export const abbreviateNumber = (value) => {
-  let newValue = value;
-  if (value >= 1000) {
-    const suffixes = ['', 'k', 'm', 'b', 't'];
-    const suffixNum = Math.floor(`${value}`.length / 3);
-    let shortValue: number | string = '';
-    for (let precision = 2; precision >= 1; precision--) {
-      shortValue = parseFloat(
-        (suffixNum !== 0 ? value / 1000 ** suffixNum : value).toPrecision(
-          precision,
-        ),
-      );
-      const dotLessShortValue = `${shortValue}`.replace(/[^a-zA-Z 0-9]+/g, '');
-      if (dotLessShortValue.length <= 2) {
-        break;
-      }
-    }
-    if (typeof shortValue === 'number') {
-      if (shortValue % 1 !== 0) shortValue = shortValue.toFixed(1);
-    }
-    newValue = shortValue + suffixes[suffixNum];
-  }
-  return newValue;
-};
+export function abbreviateNumber(num, digits = 0) {
+  const lookup = [
+    { value: 1, symbol: '' },
+    { value: 1e3, symbol: 'k' },
+    { value: 1e6, symbol: 'M' },
+    { value: 1e9, symbol: 'B' },
+    { value: 1e12, symbol: 'T' },
+    { value: 1e15, symbol: 'P' },
+    { value: 1e18, symbol: 'E' },
+  ];
+  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  const item = lookup
+    .slice()
+    .reverse()
+    .find((x) => {
+      return num >= x.value;
+    });
+  return item
+    ? (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol
+    : '0';
+}
