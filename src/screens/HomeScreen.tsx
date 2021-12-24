@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import React from "react";
 import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
 import { useNavigation } from "@react-navigation/core";
 import { useStore } from "../zustandStore";
 import { Heading } from "../components/Heading";
 import { DefaultContainer } from "../components/DefaultContainer";
+import { StyledPicker } from "../components/StyledPicker";
 
 export const HomeScreen = () => {
   const lengthOfTime = useStore((state) => state.lengthOfTime);
@@ -16,8 +16,7 @@ export const HomeScreen = () => {
   return (
     <DefaultContainer>
       <Heading>How long would you like to watch for?</Heading>
-      <Picker
-        style={styles.picker}
+      <StyledPicker
         selectedValue={lengthOfTime}
         onValueChange={setLengthOfTime}
       >
@@ -27,14 +26,8 @@ export const HomeScreen = () => {
         <Picker.Item label="20 mins" value={20} />
         <Picker.Item label="25 mins" value={25} />
         <Picker.Item label="30 mins" value={30} />
-      </Picker>
+      </StyledPicker>
       <CTAButton onPress={() => navigate("NumberVideos")}>Next</CTAButton>
     </DefaultContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  picker: {
-    width: "40%",
-  },
-});
