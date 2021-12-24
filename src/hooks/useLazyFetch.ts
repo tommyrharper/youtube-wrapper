@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import { UseFetchResult } from './useFetch';
 
-export const useLazyFetch = (url: string) => {
+export interface UseLazyFetchResult extends UseFetchResult {
+  fetchData: (newUrl?: string) => void;
+}
+
+export const useLazyFetch = (url?: string | null): UseLazyFetchResult => {
   const [data, setData] = useState<unknown>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = async (newUrl?: string) => {
     try {
-      const result = await fetch(url).then((res) => res.json());
+      const resolvedUrl = newUrl || url;
+      if (!resolvedUrl) throw Error('No URL provided');
+      const result = await fetch(resolvedUrl).then((res) => res.json());
       setData(result);
       setLoading(false);
     } catch {
