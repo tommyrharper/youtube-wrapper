@@ -21,13 +21,13 @@ export const CTAButton = ({
   buttonStyles,
 }: CTAButtonProps) => {
   return (
-    <View style={[styles.button, buttonStyles]}>
-      <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
+      <View style={[styles.button, buttonStyles]}>
         <Text allowFontScaling={false} style={styles.text}>
           {children}
         </Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
