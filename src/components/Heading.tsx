@@ -1,12 +1,13 @@
 import React, { ReactNode } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TextStyle } from 'react-native';
 
 interface HeadingProps {
   children: ReactNode;
+  extraStyles?: TextStyle;
 }
 
-export const Heading = ({ children }: HeadingProps) => {
-  return <Text style={styles.text}>{children}</Text>;
+export const Heading = ({ children, extraStyles }: HeadingProps) => {
+  return <Text style={[styles.text, extraStyles]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
