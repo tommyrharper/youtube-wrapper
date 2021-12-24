@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
+import { useNavigation } from "@react-navigation/core";
 
 export const HomeScreen = () => {
   const [lengthOfTime, setLengthOfTime] = useState<number>(5);
+
+  const { navigate } = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.question}>How long would you like to watch for?</Text>
@@ -20,7 +24,9 @@ export const HomeScreen = () => {
         <Picker.Item label="25 mins" value={25} />
         <Picker.Item label="30 mins" value={30} />
       </Picker>
-      <CTAButton onPress={() => {}}>Start</CTAButton>
+      <CTAButton onPress={() => navigate("NumberVideos", { lengthOfTime })}>
+        Next
+      </CTAButton>
     </View>
   );
 };
