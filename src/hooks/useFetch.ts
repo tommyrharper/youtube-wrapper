@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 
-export const useFetch = (url: string, initialData?: unknown) => {
+export interface UseFetchResult {
+  data: unknown;
+  loading: boolean;
+  error: boolean;
+}
+
+export const useFetch = (
+  url: string,
+  initialData?: unknown,
+): UseFetchResult => {
   const [data, setData] = useState<unknown>(initialData || null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
