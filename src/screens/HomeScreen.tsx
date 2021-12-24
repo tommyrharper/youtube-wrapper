@@ -3,9 +3,11 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
 import { useNavigation } from "@react-navigation/core";
+import { useStore } from "../zustandStore";
 
 export const HomeScreen = () => {
-  const [lengthOfTime, setLengthOfTime] = useState<number>(5);
+  const lengthOfTime = useStore(state => state.lengthOfTime);
+  const setLengthOfTime = useStore(state => state.setLengthOfTime);
 
   const { navigate } = useNavigation();
 
