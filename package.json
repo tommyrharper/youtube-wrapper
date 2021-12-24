@@ -39,7 +39,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint src/*",
-    "format": "eslint src/* --fix"
+    "format": "eslint src/* --fix",
+    "typecheck": "yarn tsc -p tsconfig.json --skipLibCheck"
   },
   "version": "1.0.0",
   "private": true,
