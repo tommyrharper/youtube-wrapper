@@ -15,12 +15,6 @@ export const VideoPreview = ({ video }: VideoPreviewProps) => {
         style={styles.image}
         source={{ uri: video.snippet.thumbnails.default.url }}
       />
-      {/* <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      /> */}
     </View>
   );
 };
@@ -37,9 +31,5 @@ const styles = StyleSheet.create({
   image: {
     width: 300,
     height: 200,
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
   },
 });
