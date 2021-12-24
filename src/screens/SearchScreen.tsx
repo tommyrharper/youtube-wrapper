@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { CTAButton } from '../components/CTAButton';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
+import { Input } from '../components/Input';
 
 export const SearchScreen = () => {
   const { navigate, goBack } = useNavigation();
@@ -11,11 +11,9 @@ export const SearchScreen = () => {
   return (
     <DefaultContainer>
       <Heading>Search</Heading>
-      <TextInput />
+      <Input />
       <CTAButton onPress={() => navigate('Search')}>Go</CTAButton>
       <CTAButton onPress={goBack}>Back</CTAButton>
     </DefaultContainer>
   );
 };
-
-const styles = StyleSheet.create({});

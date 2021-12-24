@@ -7,6 +7,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { border, boxy } from '../atoms/styles';
 
 interface CTAButtonProps {
   onPress?: () => void;
@@ -31,11 +32,8 @@ export const CTAButton = ({
 };
 const styles = StyleSheet.create({
   button: {
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 5,
-    margin: 10,
-    width: 200,
+    ...border,
+    ...boxy,
   },
   text: {
     fontSize: 20,
