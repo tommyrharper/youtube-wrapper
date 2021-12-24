@@ -1,13 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { HomeScreen } from './screens/HomeScreen';
+import { LengthOfTimeScreen } from './screens/LengthOfTimeScreen';
+
 import { NumberVideosScreen } from './screens/NumberVideosScreen';
 import { ResultsScreen } from './screens/ResultsScreen';
 import { SearchScreen } from './screens/SearchScreen';
 
 export type RootStackParamList = {
-  Home: undefined;
+  LengthOfTime: undefined;
   NumberVideos: undefined;
   Search: undefined;
   Results: {
@@ -22,8 +23,8 @@ export const NavigationStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="LengthOfTime"
+          component={LengthOfTimeScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
