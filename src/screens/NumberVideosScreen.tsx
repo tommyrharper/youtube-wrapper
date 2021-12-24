@@ -4,12 +4,11 @@ import { Picker } from "@react-native-picker/picker";
 import { CTAButton } from "../components/CTAButton";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../NavigationStack";
+import { useStore } from "../zustandStore";
 
 export const NumberVideosScreen = () => {
-  const [noOfVideos, setNoOfVideos] = useState<number>(5);
-  const {
-    params: { lengthOfTime },
-  } = useRoute<RouteProp<RootStackParamList, "NumberVideos">>();
+  const noOfVideos = useStore(state => state.noOfVideos);
+  const setNoOfVideos = useStore(state => state.setNoOfVideos);
 
   const { navigate, goBack } = useNavigation();
 
