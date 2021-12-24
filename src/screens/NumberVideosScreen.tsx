@@ -2,7 +2,7 @@ import React from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { CTAButton } from '../components/CTAButton';
-import { useStore } from '../zustandStore';
+import { useStore } from '../store';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
 import { StyledPicker } from '../components/StyledPicker';

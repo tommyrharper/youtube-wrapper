@@ -4,7 +4,7 @@ import { CTAButton } from '../components/CTAButton';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
 import { Input } from '../components/Input';
-import { useStore } from '../zustandStore';
+import { useStore } from '../store';
 
 export const SearchScreen = () => {
   const { navigate, goBack } = useNavigation();
