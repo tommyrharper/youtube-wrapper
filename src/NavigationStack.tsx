@@ -3,12 +3,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { HomeScreen } from "./screens/HomeScreen";
 import { NumberVideosScreen } from "./screens/NumberVideosScreen";
+import { SearchScreen } from "./screens/SearchScreen";
 
 export type RootStackParamList = {
   Home: undefined;
-  NumberVideos: {
-    lengthOfTime: number;
-  };
+  NumberVideos;
+  Search: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -20,12 +20,17 @@ export const NavigationStack = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: "Welcome", headerShown: false }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="NumberVideos"
           component={NumberVideosScreen}
-          options={{ title: "", headerShown: false }}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
