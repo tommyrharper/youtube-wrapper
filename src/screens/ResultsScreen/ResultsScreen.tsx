@@ -20,7 +20,7 @@ export const ResultsScreen = () => {
     <DefaultQueryContainer query={query}>
       <Heading>Results</Heading>
       <FlatList
-        data={data.items}
+        data={data?.items}
         keyExtractor={(item) => item.etag}
         renderItem={renderItem}
       />
