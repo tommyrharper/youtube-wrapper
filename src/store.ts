@@ -1,30 +1,40 @@
 import create from 'zustand';
 
-interface ZustandStore {
+interface TimeStore {
   lengthOfTime: number;
-  noOfVideos: number;
-  searchTerm: string;
   setLengthOfTime: (lengthOfTime: number | string) => void;
-  setNoOfVideos: (noOfVideos: number | string) => void;
-  setSearchTerm: (searchTerm: string) => void;
 }
 
-export const useStore = create<ZustandStore>((set) => ({
-  // initial state
+export const useTimeStore = create<TimeStore>((set) => ({
   lengthOfTime: 0,
-  noOfVideos: 0,
-  searchTerm: '',
-  // methods for manipulating state
   setLengthOfTime: (lengthOfTime: number | string) => {
     set(() => ({
       lengthOfTime: Number(lengthOfTime),
     }));
   },
+}));
+
+interface NoOfVideosStore {
+  noOfVideos: number;
+  setNoOfVideos: (noOfVideos: number | string) => void;
+}
+
+export const useNoOfVideosStore = create<NoOfVideosStore>((set) => ({
+  noOfVideos: 0,
   setNoOfVideos: (noOfVideos: number | string) => {
     set(() => ({
       noOfVideos: Number(noOfVideos),
     }));
   },
+}));
+
+interface SearchTermStore {
+  searchTerm: string;
+  setSearchTerm: (searchTerm: string) => void;
+}
+
+export const useSearchTermStore = create<SearchTermStore>((set) => ({
+  searchTerm: '',
   setSearchTerm: (searchTerm: string) => {
     set(() => ({
       searchTerm,
