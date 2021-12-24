@@ -26,7 +26,7 @@ export const HomeScreen = () => {
         <Picker.Item label="25 mins" value={25} />
         <Picker.Item label="30 mins" value={30} />
       </Picker>
-      <CTAButton onPress={() => navigate("NumberVideos", { lengthOfTime })}>
+      <CTAButton onPress={() => navigate("NumberVideos")}>
         Next
       </CTAButton>
     </View>
