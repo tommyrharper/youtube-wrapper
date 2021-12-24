@@ -4,11 +4,11 @@ import { CTAButton } from '../components/CTAButton';
 import { Heading } from '../components/Heading';
 import { DefaultContainer } from '../components/DefaultContainer';
 import { Input } from '../components/Input';
-import { useStore } from '../store';
+import { useSearchTermStore } from '../store';
 
 export const SearchScreen = () => {
   const { navigate, goBack } = useNavigation();
-  const { searchTerm, setSearchTerm } = useStore();
+  const { searchTerm, setSearchTerm } = useSearchTermStore();
 
   return (
     <DefaultContainer>
