@@ -6,6 +6,8 @@ import { LengthOfTimeScreen } from './screens/LengthOfTimeScreen';
 import { NumberVideosScreen } from './screens/NumberVideosScreen';
 import { ResultsScreen } from './screens/ResultsScreen/ResultsScreen';
 import { SearchScreen } from './screens/SearchScreen';
+import { VideoScreen } from './screens/VideoScreen/VideoScreen';
+import { TransformedVideoItem } from './types';
 
 export type RootStackParamList = {
   LengthOfTime: undefined;
@@ -13,6 +15,9 @@ export type RootStackParamList = {
   Search: undefined;
   Results: {
     searchTerm: string;
+  };
+  Video: {
+    video: TransformedVideoItem;
   };
 };
 
@@ -40,6 +45,11 @@ export const NavigationStack = () => {
         <Stack.Screen
           name="Results"
           component={ResultsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Video"
+          component={VideoScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
