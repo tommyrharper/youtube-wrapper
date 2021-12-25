@@ -4,7 +4,9 @@ import { Text, StyleSheet, Alert } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import { CTAButton } from '../../components/CTAButton';
 import { DefaultContainer } from '../../components/DefaultContainer';
+import { Heading } from '../../components/Heading';
 import { RootStackParamList } from '../../NavigationStack';
+import { useNoOfVideosStore } from '../../store';
 import { getVideoDurationString, abbreviateNumber } from '../../utils';
 
 export const VideoScreen = () => {
@@ -12,14 +14,25 @@ export const VideoScreen = () => {
   const { video } = params;
   const { goBack } = useNavigation();
 
+  const [hasPlayed, setHasPlayed] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const { updateVideosPlayed } = useNoOfVideosStore();
 
-  const onStateChange = useCallback((state) => {
-    if (state === 'ended') {
-      setPlaying(false);
-      Alert.alert('video has finished playing!');
-    }
-  }, []);
+  const onStateChange = useCallback(
+    (state) => {
+      if (state === 'playing') {
+        if (!hasPlayed) {
+          setHasPlayed(true);
+          updateVideosPlayed(video.id.videoId);
+        }
+      }
+      if (state === 'ended') {
+        setPlaying(false);
+        Alert.alert('video has finished playing!');
+      }
+    },
+    [hasPlayed, video.id.videoId, updateVideosPlayed],
+  );
 
   const togglePlaying = useCallback(() => {
     setPlaying((prev) => !prev);
@@ -27,8 +40,8 @@ export const VideoScreen = () => {
 
   return (
     <DefaultContainer>
-      <Text style={styles.text}>{video.snippet.title}</Text>
-      <Text style={styles.text}>- {video.snippet.channelTitle}</Text>
+      <Heading>{video.snippet.title}</Heading>
+      <Text style={styles.text}>{video.snippet.channelTitle}</Text>
       <YoutubePlayer
         height={300}
         play={playing}
