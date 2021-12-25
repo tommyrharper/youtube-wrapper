@@ -5,11 +5,13 @@ import YoutubePlayer from 'react-native-youtube-iframe';
 import { CTAButton } from '../../components/CTAButton';
 import { DefaultContainer } from '../../components/DefaultContainer';
 import { Heading } from '../../components/Heading';
+import { useQuitApp } from '../../hooks/useQuitApp';
 import { RootStackParamList } from '../../NavigationStack';
 import { useNoOfVideosStore } from '../../store';
 import { getVideoDurationString, abbreviateNumber } from '../../utils';
 
 export const VideoScreen = () => {
+  useQuitApp(1);
   const { params } = useRoute<RouteProp<RootStackParamList, 'Video'>>();
   const { video } = params;
   const { goBack } = useNavigation();
