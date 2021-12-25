@@ -9,7 +9,9 @@ import {
   getListVideosUrl,
   isVideoListResponse,
   getTransformedVideoResponse,
-} from '../../../utils';
+} from '../utils';
+
+import { useMockLazyFetch } from './useMockLazyFetch';
 
 export const useTransformResults = (
   searchResult: unknown | YouTubeSearchResponse,
@@ -17,7 +19,8 @@ export const useTransformResults = (
   const [transformedResults, setTransformedResults] =
     useState<null | TransformedVideosResponse>(null);
   const [listUrl, setListUrl] = useState<null | string>(null);
-  const query = useLazyFetch(listUrl);
+  // const query = useLazyFetch(listUrl);
+  const query = useMockLazyFetch(listUrl);
 
   useEffect(() => {
     if (isYouTubeSearchResponse(searchResult)) {
