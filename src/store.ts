@@ -16,15 +16,26 @@ export const useTimeStore = create<TimeStore>((set) => ({
 
 interface NoOfVideosStore {
   noOfVideos: number;
+  videosPlayed: string[];
   setNoOfVideos: (noOfVideos: number | string) => void;
+  updateVideosPlayed: (id: string) => void;
 }
 
 export const useNoOfVideosStore = create<NoOfVideosStore>((set) => ({
   noOfVideos: 0,
+  videosPlayed: [],
   setNoOfVideos: (noOfVideos: number | string) => {
     set(() => ({
       noOfVideos: Number(noOfVideos),
     }));
+  },
+  updateVideosPlayed: (id: string) => {
+    set((state) => {
+      if (state.videosPlayed.includes(id)) return state;
+      return {
+        videosPlayed: [...state.videosPlayed, id],
+      };
+    });
   },
 }));
 
