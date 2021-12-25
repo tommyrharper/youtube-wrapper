@@ -6,8 +6,10 @@ import { Heading } from '../../components/Heading';
 import { DefaultQueryContainer } from '../../components/DefaultQueryContainer';
 import { VideoPreview } from './components/VideoPreview';
 import { useFetchResults } from './hooks/useFetchResults';
+import { useQuitApp } from '../../hooks/useQuitApp';
 
 export const ResultsScreen = () => {
+  useQuitApp();
   const { goBack } = useNavigation();
   const query = useFetchResults();
   const { data } = query;
